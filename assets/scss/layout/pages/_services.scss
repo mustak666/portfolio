@@ -1,0 +1,52 @@
+@use '../../utils' as *;
+
+.services {
+    text-align: center;
+    padding: 0 15px;
+    &__icon{
+        margin-bottom: 10px;
+        & i{
+            color: #10c9c9;
+            font-size: 50px;
+        }
+    }
+    &__title {
+        font-size: 25px;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+}
+
+.summary{
+    border: 1px solid aqua;
+    border-radius: 30px;
+    padding: 30px;
+    padding-bottom: 25px;
+    &__meta {
+        display: inline-block;
+        background: aqua;
+        font-weight: 500;
+        line-height: 1;
+        padding: 4px 7px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+    &__title {
+        font-size: 25px;
+        font-weight: 600;
+        margin-bottom: 14px;
+    }
+    & p{
+        margin: 0;
+    }
+}
+h3.summary-title.mb-50 {
+    font-size: 40px;
+    font-weight: 600;
+    & span{
+        color: aqua ;
+    }
+}
+.summary__exp {
+    padding: 20px 30px;
+}

@@ -1,0 +1,81 @@
+@use '../utils' as *;
+
+img{
+	max-width: 100%;
+}
+
+.fix {
+    overflow:hidden
+}
+
+
+
+.z-index-1{
+	z-index: 1;
+}
+
+.z-index-2{
+	z-index: 2;
+}
+
+
+.p-relative{
+	position: relative;
+}
+.p-absolute{
+	position: absolute;
+}
+
+
+.fs{
+	&-15{
+		font-size: 15px;
+	}
+	&-20{
+		font-size: 20px;
+	}
+	&-24{
+		font-size: 24px;
+	}
+	&-30{
+		font-size: 30px;
+		@media #{$xs}{
+            font-size: 22px;
+        }
+	}
+	&-40{
+		font-size: 40px;
+        @media #{$lg}{
+            font-size: 32px;
+        }
+	}
+}
+
+.upper{
+	text-transform: uppercase;
+}
+.cap{
+	text-transform: capitalize;
+}
+.flex-center{
+	display: flex;
+	align-items: center;
+}
+.flex{
+	display: flex;
+}
+.align-end{
+	align-items: end;
+}
+.align-center{
+	align-items: center;
+}
+.justify-end{
+	justify-content: end;
+}
+.justify-between{
+	justify-content: space-between;
+}
+.justify-center{
+	justify-content: center;
+}

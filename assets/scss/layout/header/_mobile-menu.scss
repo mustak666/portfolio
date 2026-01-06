@@ -1,0 +1,134 @@
+@use '../../utils' as *;
+.tp-header-bar {
+	font-size: 25px;
+	color: var(--tp-white);
+    &-black{
+        color: var(--heading-color);
+        margin-right: 20px;
+    }
+    &:hover{
+        color: var(--tp-primary-color);
+    }
+}
+.tp-header-nav{
+    justify-content: end;
+}
+
+.tp-offcanvas-menu {
+    margin-bottom: 20px;
+    @media #{$xs}{
+      width: 100%;
+    }
+    @media #{$sm}{
+     
+    }
+    & ul{
+        & li{
+            position: relative;
+            border-bottom: 1px solid #ddd;
+            padding: 5px 0;
+            transition: .4s;
+            & .sub-menu {
+                display: none;
+                & li{
+                    padding-left: 20px;
+                    &:last-child{
+                        border: 0;
+                        padding-bottom: 0;
+
+                    }
+                    & a{
+                        transition: .4s;
+                        &:hover{
+                            color: var(--tp-theme-color);
+                        }
+                        & i{
+                            display: none;
+                        }
+                    }
+                }
+              }
+            & .mega-menu {
+                display: none;
+                & li{
+                    padding-left: 20px;
+                    &:last-child{
+                        padding-bottom: 0;
+                        border-bottom: 0;
+                    }
+                }
+              }
+              &.active{
+                transition: .4s;
+                 & > a{
+                    color: var(--tp-theme-color);
+                 }
+                 & > .ex-menu-close {
+                    background-color: var(--tp-theme-color);
+                    color: #fff;
+                    transition: .4s;
+                    & > i{
+                        transform: rotate(90deg);
+                    }
+                }
+              }
+              & a{
+                display: block;
+                & svg{
+                    display: none;
+                }
+              }
+        }
+
+    }
+      
+  }
+  .tp-menu-close {
+	position: absolute;
+	right: 10px;
+	top: 3px;
+	border: 1px solid #ddd;
+	height: 30px;
+	width: 30px;
+    & i{
+        font-size: 15px;
+    }
+}
+
+
+.tp-mobail-menu{
+    display: none;
+    @media #{$xs,$sm,$md,$lg}{
+        display: block;
+    }
+    &-bar {
+        & button{
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 12px;
+            line-height: 5px;
+            background-color: var(--tp-theme-color);
+            @include transition(.4s);
+            & i{
+                font-size: 30px;
+                line-height: 1;
+                color:var( --tp-common-green);
+                @include transition(.4s);
+                
+    
+            }
+            &:hover{
+                background-color:var(--tp-common-green);
+                border-color: transparent;
+                & i{
+                    color: #fff;
+                }
+            }
+        }
+        &-trd{
+            @media #{$md,$xs}{
+                margin-right: 0;
+            }
+        }
+    }
+}

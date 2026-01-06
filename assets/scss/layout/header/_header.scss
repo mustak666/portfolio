@@ -1,0 +1,39 @@
+@use '../../utils' as *;
+
+
+.header{
+    &-transparent{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+    }
+    &-logo{
+        & a{
+            width: 120px;
+            display: block;
+            height: auto;
+        }
+    }
+    &-menu{
+        text-align: center;
+        
+        & ul{
+            & li{
+                display: inline-block;
+                list-style: none;
+                margin-right: 20px;
+                &:hover > a{
+                    color: #fff;
+                }
+                & a{
+                    display: inline-block;
+                    font-weight: 600;
+                    padding: 20px 0;
+                    font-family: var(--font-heading);
+                }
+            }
+        }
+    }
+}

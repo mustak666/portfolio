@@ -1,0 +1,20 @@
+@use '../../utils' as *;
+
+.footer-copyright{
+    padding: 30px 0;
+    background-color: #252b33;
+    & p{
+        margin: 0;
+        font-size: 18px;
+         color: #fff;
+        & a{
+            font-weight: 600;
+            text-decoration: underline;
+            padding: 0 5px;
+            color: #f5df4e;
+            &:hover{
+                text-decoration: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,67 @@
+@use '../../utils' as *;
+h3.contect-title {
+    font-size: 40px;
+}
+
+
+
+.contect__cta{
+    display: flex;
+    align-items: center;
+    &-icon {
+        width: 40px;
+        height: 40px;
+        background: #ddd;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 50%;
+        font-size: 17px;
+    }
+    &-label {
+        font-size: 20px;
+        line-height: 1;
+        margin-bottom: 3px;
+    }
+    &-content{
+        & span a{
+            border-bottom: 1.5px solid transparent;
+            &:hover{
+                border-color: #000;
+            }
+        }
+    }
+}
+
+.contect-social{
+    & ul{
+        & li{
+            list-style: none;
+            display: inline-block;
+            margin-right: 10px;
+            & a{
+                font-size: 25px;
+                &:hover{
+                    color: aqua;
+                }
+            }
+        }
+    }
+}
+
+.contect-form-input{
+    & label{
+        margin-bottom: 5px;
+    }
+    & input,& textarea {
+        border: 1px solid #57595C;
+        border-radius: 30px;
+        padding: 0 30px;
+        height: 50px;
+        &:focus{
+            border-color: #000;
+        }
+    }
+    & textarea {
+        height: 128px;
+    }
+}

@@ -1,0 +1,61 @@
+@use '../../utils' as *;
+
+.about{
+    &-title {
+        font-size: 30px;
+        font-weight: 500;
+        & span{
+            font-weight: 600;
+            display: inline-block;
+            font-family: var(--font-heading);
+            position: relative;
+            &::before{
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 2px;
+            border-radius: 10px;
+            background-color: aqua;
+            left: 0;
+            bottom: -2px;
+            }
+        }
+    }
+    &-content{
+        & p{
+            font-size: 20px; 
+            & b{
+                font-weight: 500;
+            }
+        }
+    }
+    &-exprience{
+        text-align: center;
+        &-year{
+            position: relative;
+            font-size: 200px;
+            font-weight: 600;
+            font-family: var(--font-heading);
+            background: linear-gradient( aqua, #f5df4e );
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation:6s linear infinite hue-rotate;
+        }
+        &-title{
+            font-weight: 500;
+        }
+    }
+    &-cta{
+        & span{
+            color: #6c757d;
+            display: inline-block;
+            margin-bottom: 5px; 
+        }
+
+    }
+}
+@keyframes hue-rotate {
+    0% {filter:hue-rotate(0)}
+    to {filter:hue-rotate(-360deg)}
+}

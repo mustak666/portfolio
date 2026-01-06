@@ -1,0 +1,53 @@
+@use '../../utils' as *;
+
+.hero{
+    &-area {
+        padding: 140px 0;
+    }
+    &-sub{
+        &-title{
+            font-size: 30px;
+            text-transform: uppercase;
+            display: block;
+        }
+    }
+    &-title{
+        font-size: 65px;
+        font-weight: 700;
+        line-height: 1.1;
+    }
+    &-content{
+        & p{
+            font-size: 22px;
+            font-family: var(--font-heading);
+            font-weight: 500;
+        }
+    }
+    &-text{
+        &-btn{
+            font-weight: 500;
+            text-decoration: underline;
+            & i{
+                transform: translateY(1px);
+            }
+            &:hover{
+                text-decoration: none;
+            }
+        }
+    }
+    &-thumb{
+        & img{
+            background: #282828;
+            border-radius: 50%;
+            border: 15px solid #fff;
+            width: 80%;
+            filter: grayscale(90%);   
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
+            @include transition(.4s); 
+            &:hover{
+                filter: none;
+            }
+        }
+    }
+}
+

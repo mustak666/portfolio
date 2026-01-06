@@ -1,0 +1,47 @@
+@use '../utils' as *;
+
+.btn {
+    background: #fff;
+    border-radius: 30px;
+    padding: 10px 35px;
+    line-height: 1;
+    font-weight: 600;
+    font-family: var(--font-heading);
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    border: none;
+    @include transition(.5s);
+    &:hover{
+        background-color: black;
+        color: #fff;
+    }
+    &-black {
+        background: #000;
+        color: #fff;
+        display: inline-block;
+        line-height: 1;
+        letter-spacing: 1px;
+        padding: 15px 30px;
+        font-weight: 500;
+        border-radius: 30px;
+        @include transition(.3s);
+        &:hover{
+            background-color: #fff;
+            color: #000;
+        }
+        &-border {
+            background: transparent;
+            color: #000;
+            border: 1.5px solid #000;
+            border-radius: 0;
+            &:hover{
+                background-color: #000;
+                color: #fff;
+                border-color: transparent;
+            }
+        }
+    }
+    &-white {
+        padding: 15px 45px;
+    }
+}

@@ -1,0 +1,13 @@
+@use '../utils' as *;
+
+.section{
+    &-sub-title {
+        display: inline-block;
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
+    &-title{
+        font-size: 50px;
+    }
+}
