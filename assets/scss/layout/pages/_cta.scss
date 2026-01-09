@@ -7,10 +7,20 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    @media #{$md}{
+       padding: 120px 0;
+    }
+    @media #{$xs}{
+       padding: 100px 0;
+    }
 }
 h2.cta-title {
     font-size: 45px;
     color: #fff;
+    @media #{$xs}{
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
 }
 .cta-overlay{
     &::before{

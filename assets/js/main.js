@@ -32,74 +32,72 @@
     });
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  const skillCircles = document.querySelectorAll(".skill_circle");
+    document.addEventListener("DOMContentLoaded", function () {
+      const skillCircles = document.querySelectorAll(".skill_circle");
 
-  // ✅ Initial state: সব progress 0
-  skillCircles.forEach(progress => {
-    const number = progress.querySelector(".number");
-    progress.style.background = `conic-gradient(#000 0%, #000 0%)`;
-    number.innerHTML = `0<span>%</span>`;
-  });
-
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-
-        const progress = entry.target;
-        if (progress.classList.contains("animated")) return;
-        progress.classList.add("animated");
-
-        let degree = 0;
-        const targetDegree = parseInt(progress.dataset.degree);
-        const color = progress.dataset.color;
+      // ✅ Initial state: সব progress 0
+      skillCircles.forEach(progress => {
         const number = progress.querySelector(".number");
+        progress.style.background = `conic-gradient(#000 0%, #000 0%)`;
+        number.innerHTML = `0<span>%</span>`;
+      });
 
-        const interval = setInterval(() => {
-          degree++;
-          if (degree > targetDegree) {
-            clearInterval(interval);
-            return;
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+
+            const progress = entry.target;
+            if (progress.classList.contains("animated")) return;
+            progress.classList.add("animated");
+
+            let degree = 0;
+            const targetDegree = parseInt(progress.dataset.degree);
+            const color = progress.dataset.color;
+            const number = progress.querySelector(".number");
+
+            const interval = setInterval(() => {
+              degree++;
+              if (degree > targetDegree) {
+                clearInterval(interval);
+                return;
+              }
+
+              progress.style.background = `conic-gradient(${color} ${degree}%, #000 90%)`;
+              number.innerHTML = degree + "<span>%</span>";
+              number.style.color = color;
+            }, 20);
+
+            observer.unobserve(progress);
+          });
+        }, {
+          threshold: 0.4
+        });
+
+        skillCircles.forEach(circle => observer.observe(circle));
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const bars = document.querySelectorAll(".progress-bar");
+
+      bars.forEach(bar => {
+        // শুরুতে 0%
+        bar.style.width = "0%";
+        bar.style.transition = "width 1.5s ease-in-out";
+      });
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const bar = entry.target;
+            const value = bar.getAttribute("aria-valuenow");
+            bar.style.width = value + "%";
+            observer.unobserve(bar); // একবারই animate হবে
           }
+        });
+      }, { threshold: 0.4 });
 
-          progress.style.background = `conic-gradient(${color} ${degree}%, #000 90%)`;
-          number.innerHTML = degree + "<span>%</span>";
-          number.style.color = color;
-        }, 20);
-
-        observer.unobserve(progress);
-      });
-    }, {
-      threshold: 0.4
+      bars.forEach(bar => observer.observe(bar));
     });
-
-    skillCircles.forEach(circle => observer.observe(circle));
-});
-
-
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const bars = document.querySelectorAll(".progress-bar");
-
-    bars.forEach(bar => {
-      // শুরুতে 0%
-      bar.style.width = "0%";
-      bar.style.transition = "width 1.5s ease-in-out";
-    });
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const bar = entry.target;
-          const value = bar.getAttribute("aria-valuenow");
-          bar.style.width = value + "%";
-          observer.unobserve(bar); // একবারই animate হবে
-        }
-      });
-    }, { threshold: 0.4 });
-
-    bars.forEach(bar => observer.observe(bar));
-  });
 
 
 
@@ -152,7 +150,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
+    gsap.registerPlugin(ScrollTrigger);
 
+    let sections = gsap.utils.toArray(".panel");
 
-
+    gsap.to(sections, {
+      xPercent: -100 * (sections.length - 1),
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".panel-wrap",
+        pin: true,
+        scrub: 1,
+        snap: 1 / (sections.length - 1),
+        end: "+=3500",
+      }
+    });
 })(jQuery);

@@ -3,24 +3,65 @@
 .hero{
     &-area {
         padding: 140px 0;
+        @media #{$lg,$md}{
+           padding-bottom: 100px;
+        }
+        @media #{$md}{
+           padding-top: 120px;
+        }
+        @media #{$xs}{
+           padding: 90px 0;
+           padding-bottom: 70px;
+        }
     }
     &-sub{
         &-title{
             font-size: 30px;
             text-transform: uppercase;
             display: block;
+            @media #{$lg,$md}{
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+            @media #{$xs}{
+                font-size: 20px;
+                margin-bottom: 0;
+            }
         }
     }
     &-title{
         font-size: 65px;
         font-weight: 700;
         line-height: 1.1;
+        @media #{$xl}{
+            font-size: 55px;
+        }
+        @media #{$lg}{
+            font-size: 50px;
+        }
+        @media #{$md}{
+            font-size: 56px;
+            margin-bottom: 15px;
+        }
+        @media #{$xs}{
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
     }
     &-content{
+        @media #{$md}{
+          margin-bottom: 30px;
+        }
+        @media #{$xs}{
+          margin-bottom: 20px;
+        }
         & p{
             font-size: 22px;
             font-family: var(--font-heading);
             font-weight: 500;
+            @media #{$xs}{
+                font-size: 15px;
+            }
         }
     }
     &-text{
@@ -36,6 +77,10 @@
         }
     }
     &-thumb{
+        @media #{$xs}{
+            margin-top: 30px;
+            text-align: center !important;
+        } 
         & img{
             background: #282828;
             border-radius: 50%;
@@ -46,6 +91,15 @@
             @include transition(.4s); 
             &:hover{
                 filter: none;
+            }
+            @media #{$xl}{
+               width: 90%;
+            }
+            @media #{$lg}{
+               width: 99%;
+            }
+            @media #{$md}{
+               width: 60%;
             }
         }
     }

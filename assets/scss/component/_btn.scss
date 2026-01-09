@@ -29,6 +29,17 @@
             background-color: #fff;
             color: #000;
         }
+        @media #{$lg,$md}{
+            font-size: 15px;
+            padding: 15px 25px;
+        }
+        @media #{$md}{
+            padding: 13px 18px;
+        }
+        @media #{$xs}{
+           padding: 12px 15px;
+           font-size: 15px;
+        }
         &-border {
             background: transparent;
             color: #000;

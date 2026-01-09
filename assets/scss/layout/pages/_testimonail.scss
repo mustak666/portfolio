@@ -2,13 +2,30 @@
 .testimonail{
     &__title {
         font-size: 35px;
+        @media #{$lg,$md}{
+            margin-bottom: 20px;
+            font-size: 30px;
+        }
+        @media #{$xs}{
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
     }
     &__content{
+        @media #{$lg,$md,$xs}{
+          margin-bottom: 30px;
+        }
         & p{
-        font-size: 25px;
-        font-family: var(--font-heading);
-        font-weight: 500;
-        line-height: 1.2; 
+            font-size: 25px;
+            font-family: var(--font-heading);
+            font-weight: 500;
+            line-height: 1.2; 
+            @media #{$lg,$md}{
+               font-size: 22px;
+            }
+            @media #{$xs}{
+               font-size: 18px;
+            }
         }
     }
     &__author{
@@ -22,6 +39,9 @@
         &-title{
             line-height: 1;
             margin-bottom: 7px;
+        }
+        &--content{
+            text-align: start;
         }
     }
     &__icon{
@@ -37,6 +57,13 @@
             &:hover .testimonail-nav{
                 opacity: 1;
                 visibility: visible;
+            }
+        }
+    }
+    &-title{
+        &-wrap{
+            @media #{$md,$xs}{
+                padding-bottom: 60px;
             }
         }
     }
@@ -56,6 +83,10 @@
     left: -100px;
     transform: translateY(-50%);
     @include transition(.3s);
+    @media #{$md}{
+        position: inherit;
+        transform: translateY(0);
+    }
 }
 .testi_nav_button.swiper-button-disabled {
     opacity: 0;

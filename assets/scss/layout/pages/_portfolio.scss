@@ -1,0 +1,158 @@
+@use '../../utils' as *;
+
+
+.portfolio{
+    &-content {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        width: 450px;
+        backdrop-filter: blur(10px);
+        padding: 15px;
+        box-shadow: 5px 5px 60px #494343;
+        border-radius: 10px;
+        overflow: hidden;
+        @include transition(.4s);
+        @media #{$xs}{
+            width: auto;
+            left: 0;
+            bottom: 0;
+        }
+    }
+    &-thumb{
+        &::before{
+            position: absolute;
+            content: "";
+            background-color: #000;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            opacity: .4;
+            border-radius: 20px;
+            opacity: 0;
+            visibility: hidden;
+            @include transition(.4s);
+        }
+        &::after{
+            position: absolute;
+            content: "";
+            backdrop-filter: blur(7px);
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            border-radius: 20px;
+            @include transition(.4s);
+        }
+        & img{
+            width: 100%;
+            min-height: 507px;
+            object-fit: cover;
+        }
+    }
+    &-cat {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 999;
+        background-color: #626262;
+        color: #fff;
+        padding: 10px 22px;
+        border-radius: 30px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        line-height: 1;
+        @include transition(.4s);
+    }
+    &-title {
+        font-size: 32px;
+        color: #fff;
+        &-wrap{
+            @media #{$lg}{
+                margin-bottom: 50px;
+            }
+        }
+    }
+    &-item{
+        border-radius: 20px;
+        overflow: hidden;
+    }
+    &-btn {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        visibility: hidden;
+        @include transition(.4s);
+            @media #{$xs}{
+               text-align: center;
+               width: 100%;
+            }
+    }
+    &-deg {
+        font-size: 16px;
+        color: #fff;
+        margin: 0;
+    }
+    &-item{
+        position: relative;
+        &:hover{
+            & .portfolio-thumb{
+                &::before{
+                    opacity: .5;
+                    visibility: visible; 
+                }
+                &::after{
+                    opacity: 0;
+                    visibility: hidden;
+                }
+                & .portfolio-cat{
+                    opacity: 0;
+                    visibility: hidden;
+                }
+            }
+            & .portfolio-btn{
+                opacity: 1;
+                visibility: visible;
+                top: 50%;
+            }   
+            & .portfolio-content{
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+    }
+    &-area{
+        @media #{$xs}{
+           padding: 80px 0;
+        }
+    }
+}
+
+.panel-wrap,.wp-panel-wrap {
+  overscroll-behavior: none;
+  width: 400% !important;
+  height: 100% !important;
+  display: flex;
+  flex-wrap: nowrap;
+    @media #{$xs}{
+       transform: translateY(14%) !important;
+    }
+}
+.panel {
+    flex: 0 0 auto;
+    max-width: 860px;
+    height: 100%;
+    @media #{$lg}{
+        max-width: 960px;
+    }
+    @media #{$md}{
+        max-width: 770px;
+    }
+    @media #{$xs}{
+        max-width: 320px;
+    }
+}

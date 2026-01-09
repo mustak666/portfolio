@@ -4,6 +4,10 @@
     &-title {
         font-size: 30px;
         font-weight: 500;
+        @media #{$xs}{
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
         & span{
             font-weight: 600;
             display: inline-block;
@@ -24,6 +28,9 @@
     &-content{
         & p{
             font-size: 20px; 
+            @media #{$md,$xs}{
+                font-size: 16px;
+            }
             & b{
                 font-weight: 500;
             }
@@ -34,28 +41,64 @@
         &-year{
             position: relative;
             font-size: 200px;
-            font-weight: 600;
+            font-weight: 700;
             font-family: var(--font-heading);
-            background: linear-gradient( aqua, #f5df4e );
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation:6s linear infinite hue-rotate;
         }
         &-title{
             font-weight: 500;
+            @media #{$md}{
+                font-size: 22px;
+            }
+        }
+        &-animate {
+            color: transparent;
+            background-image: url('https://images.unsplash.com/photo-1732535725600-f805d8b33c9c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
+            background-size: 200%; /* Enlarged for smooth animation */
+            background-position: 0 50%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: animate-background 5s infinite alternate linear;
+        }
+        @media #{$xs}{
+            transform: translateY(60px);
+            margin-bottom: 30px;
         }
     }
     &-cta{
+        @media #{$xs}{
+            margin-bottom: 15px;
+        }  
         & span{
             color: #6c757d;
             display: inline-block;
             margin-bottom: 5px; 
         }
-
+        &-wrap{
+            display: flex;
+            justify-content: end;
+            @media #{$md,$xs}{
+                justify-content: start;
+            }
+        }
+    }
+    &-area{
+        @media #{$md,$xs}{
+            padding: 80px 0;
+        }
+        @media #{$xs}{
+            padding-bottom: 60px;
+        }
     }
 }
-@keyframes hue-rotate {
-    0% {filter:hue-rotate(0)}
-    to {filter:hue-rotate(-360deg)}
+
+
+
+@keyframes animate-background {
+    0% {
+        background-position: 0 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
 }

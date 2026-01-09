@@ -14,6 +14,34 @@
         font-size: 25px;
         margin-bottom: 10px;
         font-weight: 600;
+        @media #{$md,$xs}{
+            font-size: 20px;
+        }
+    }
+    &__content{
+        & p{
+            @media #{$md,$xs}{
+                font-size: 16px;
+            }
+        }
+    }
+    &-area{
+        @media #{$md,$xs}{
+            padding: 80px 0;
+        }
+        @media #{$xs}{
+           padding-bottom: 60px;
+        }
+    }
+    &-title{
+        &-wrap{
+            @media #{$md}{
+                padding-bottom: 60px;
+            }
+            @media #{$xs}{
+                padding-bottom: 50px;
+            }
+        }
     }
 }
 
@@ -30,23 +58,61 @@
         padding: 4px 7px;
         border-radius: 10px;
         margin-bottom: 15px;
+        @media #{$xs}{
+            font-size: 15px;
+        }
     }
     &__title {
         font-size: 25px;
         font-weight: 600;
         margin-bottom: 14px;
+        @media #{$lg,$xs}{
+            font-size: 20px;
+        }
+        @media #{$xs}{
+            margin-bottom: 10px;
+        }
     }
     & p{
         margin: 0;
+        @media #{$xs}{
+            font-size: 16px;
+        }
+    }
+    &__exp {
+        padding: 20px 30px;
+    }
+    &__content{
+        & p{
+            @media #{$lg}{
+                font-size: 15px;
+            }
+        }
+    }
+
+    // not underscor
+    &-title {
+        font-size: 40px;
+        font-weight: 600;
+        @media #{$md}{
+            font-size: 35px;
+            margin-bottom: 40px;
+        }
+        @media #{$xs}{
+            font-size: 30px;
+            margin-bottom: 35px;
+        }
+        & span{
+            color: aqua ;
+        }
+    }
+    &-area{
+        @media #{$md,$xs}{
+           padding: 80px 0;
+        }
+
     }
 }
-h3.summary-title.mb-50 {
-    font-size: 40px;
-    font-weight: 600;
-    & span{
-        color: aqua ;
-    }
-}
-.summary__exp {
-    padding: 20px 30px;
-}
+
+
+
