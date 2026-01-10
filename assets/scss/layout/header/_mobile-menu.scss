@@ -17,69 +17,38 @@
 }
 
 .offcanvas-menu {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     @media #{$xs}{
       width: 100%;
-    }
-    @media #{$sm}{
-     
     }
     & ul{
         & li{
             position: relative;
-            border-bottom: 1px solid #ddd;
             padding: 5px 0;
             transition: .4s;
             list-style: none;
-            & .sub-menu {
-                display: none;
-                & li{
-                    padding-left: 20px;
-                    &:last-child{
-                        border: 0;
-                        padding-bottom: 0;
-
-                    }
-                    & a{
-                        transition: .4s;
-                        &:hover{
-                            color: #fff;
-                        }
-                        & i{
-                            display: none;
-                        }
-                    }
-                }
-              }
-            & .mega-menu {
-                display: none;
-                & li{
-                    padding-left: 20px;
-                    &:last-child{
-                        padding-bottom: 0;
-                        border-bottom: 0;
-                    }
-                }
-              }
-              &.active{
-                transition: .4s;
-                 & > a{
-                    color: var(--tp-theme-color);
-                 }
-                 & > .ex-menu-close {
-                    background-color: var(--tp-theme-color);
-                    color: #fff;
-                    transition: .4s;
-                    & > i{
-                        transform: rotate(90deg);
-                    }
-                }
-              }
+            &:hover > a::before{
+                width: 100%;
+                left: 0;
+                right: auto;
+            }
               & a{
-                display: block;
-                & svg{
-                    display: none;
-                }
+                color: #000;
+                font-size: 18px;
+                position: relative;
+                    &::before{
+                        position: absolute;
+                        content: "";
+                        width: 0;
+                        height: 2px;
+                        background-color: #000;
+                        border-radius: 10px;
+                        bottom: 0;
+                        left: auto;
+                        z-index: 1;
+                        @include transition(.4s);
+                        right: 0;
+                    }
               }
         }
 

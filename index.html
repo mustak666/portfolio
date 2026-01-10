@@ -11,18 +11,43 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-
+        <!-- back to top  -->
     <div class="progress-wrap">
 		<svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
 			<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
 		</svg>
 	</div>
 
-
-
-
-
-
+    <div class="preloader fix">
+      <div class="site-name"><span>Portfolio</span></div>
+      <div class="preloader-gutters">
+        <div class="bar">
+          <div class="inner-bar"></div>
+        </div>
+        <div class="bar">
+          <div class="inner-bar"></div>
+        </div>
+        <div class="bar">
+          <div class="inner-bar"></div>
+        </div>
+        <div class="bar">
+          <div class="inner-bar"></div>
+        </div>
+        <div class="bar">
+          <div class="inner-bar"></div>
+        </div>
+        <div class="bar">
+          <div class="inner-bar"></div>
+        </div>
+        <div class="bar">
+          <div class="inner-bar"></div>
+        </div>
+        <div class="bar">
+          <div class="inner-bar"></div>
+        </div>
+      </div>
+      <div class="preloader-overlay"></div>
+    </div>
     
    <!-- header start  -->
     <header class="header-transparent">
@@ -52,8 +77,12 @@
                     </div>
                     <div class="col-xl-2 col-lg-3 col-md-3 col-5">
                         <div class="header-btn">
-                            <a class="btn d-none d-lg-flex" href="#">Hire Me</a>
+                            <a class="btn d-none d-lg-flex" href="#p_contect">Hire Me</a>
                             <button class="header-sidebar-btn offcanvas-toogle ml-10">
+                                <span></span>
+                                <span></span>
+                            </button>
+                            <button id="sticky-bar" class="header-sidebar-btn offcanvas-toogle ml-10">
                                 <span></span>
                                 <span></span>
                             </button>
@@ -67,11 +96,10 @@
 
    <!-- main start  -->
     <main>
-
         <!-- offcanvas-start -->
         <section class="offcanvas">
             <div class="offcanvas-wrapper">
-                <div class="offcanvas-header d-flex align-items-center justify-content-between mb-30">
+                <div class="offcanvas-header d-flex align-items-center justify-content-between mb-40">
                     <div class="header-logo offcanvas-logo">
                         <a href="index.html"><img src="assets/img/logo/logo.png" alt="logo-ing"></a>
                     </div>
@@ -84,11 +112,11 @@
                     <nav></nav>
                 </div>
                 <div class="offcanvas-content mb-30">
-                    <h3 class="offcanvas-title">Portfolio Offcanvas Title</h3>
-                    <p>I’m a Frontend & WordPress Developer focused on building clean, responsive, and user-friendly websites.</p>
+                    <h3 class="offcanvas-title mb-7">Portfolio Offcanvas Title</h3>
+                    <p class="m-0">I’m a Frontend & WordPress Developer focused on building clean, responsive, and user-friendly websites.</p>
                 </div>
-                <div class="offcanvas-cta mb-20">
-                <h3 class="offcanvas-title">Information</h3>
+                <div class="offcanvas-cta mb-30">
+                <h3 class="offcanvas-title mb-7">Information</h3>
                     <ul>
                         <li><a href="tel:+880 1306-112137">+880 1306-112137</a></li>
                         <li><a href="mailto:mustakahmedrion523@gmail.com">mustakahmedrion523@gmail.com</a></li>
@@ -119,8 +147,8 @@
                             <p>I help businesses grow with fast and scalable WordPress websites.</p>
                         </div>
                         <div class="hero-btn">
-                            <a href="#" class="btn-black mr-10">View My Works</a>
-                            <a href="#" class="hero-text-btn">Contect Me <i class="fa-solid fa-circle-arrow-down-right"></i></a>
+                            <a href="#p_portfolio" class="btn-black mr-10">View My Works</a>
+                            <a href="#p_contect" class="hero-text-btn">Contect Me <i class="fa-solid fa-circle-arrow-down-right"></i></a>
                         </div>
                     </div>
                     <div class="col-xl-5 col-lg-5">
@@ -566,7 +594,7 @@
                         <div class="cta-wrap text-center p-relative z-index-1">
                             <h2 class="cta-title mb-35">Interested in working with me?</h2>
                             <div class="cta-btn">
-                                <a href="#" class="btn btn-white">Hire Me!</a>
+                                <a href="#p_contect" class="btn btn-white">Hire Me!</a>
                             </div>
                         </div>
                     </div>
@@ -870,7 +898,7 @@
     <!-- footer start -->
      <footer>
         <div class="footer-copyright text-center">
-            <p>Copyright © 2021 <a href="#">Rion</a>. All Rights Reserved.</p>
+            <p>Copyright © 2021 <a href="https://github.com/mustak666">Rion</a>. All Rights Reserved.</p>
         </div>
      </footer>
     <!-- footer end -->

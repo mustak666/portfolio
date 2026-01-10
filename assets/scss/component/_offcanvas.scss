@@ -57,7 +57,7 @@
 			list-style: none;
 			& span{
 				font-size: 17px;
-				color: var(--tp-heading-color);
+				color: #000;
 				& i{
 					margin-right: 6px;
 				}
@@ -96,59 +96,59 @@
     transition-delay: 0s;
 }
 
-    .header-sidebar{
-        &-btn{
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            width: 40px;
-            height: 40px;
-            align-items: center;
-            justify-content: center;
-            padding-right: 10px;
-            border-radius: 50px;
-			background-color: #fff;
-            &:hover{
-                & span{
-                    animation: bar_anim 0.8s cubic-bezier(0.44, 1.1, 0.53, 0.99) 1 forwards;
-                    &:nth-child(2) {
-                        animation-delay: 0.1s;
-                    }
-                }
-            }
-            & span{
-                background: #000;
-                width: 13px;
-                margin: 0 0 0 auto;
-                border-radius: 20px;
-                height: 2px;
-                display: inline-block;
-                &:nth-child(2){
-                    width: 20px;
-                }
-            }
-            &-bg{
-                width: 36px;
-                height: 36px;
-                background: #000;
-                border-radius: 50px;
-                justify-content: center;
-                padding-right: 9px;
-                & span{
-                    background: #fff;
-                    &:nth-child(2){
-                        width: 18px;
-                    }
-                }
-                &-white{
-                    background: #fff;
-                    & span{
-                        background: #000;
-                    }
-                }
-            }
-        }
-    }
+.header-sidebar{
+	&-btn{
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+		width: 40px;
+		height: 40px;
+		align-items: center;
+		justify-content: center;
+		padding-right: 10px;
+		border-radius: 50px;
+		background-color: #fff;
+		&:hover{
+			& span{
+				animation: bar_anim 0.8s cubic-bezier(0.44, 1.1, 0.53, 0.99) 1 forwards;
+				&:nth-child(2) {
+					animation-delay: 0.1s;
+				}
+			}
+		}
+		& span{
+			background: #000;
+			width: 13px;
+			margin: 0 0 0 auto;
+			border-radius: 20px;
+			height: 2px;
+			display: inline-block;
+			&:nth-child(2){
+				width: 20px;
+			}
+		}
+		&-bg{
+			width: 36px;
+			height: 36px;
+			background: #000;
+			border-radius: 50px;
+			justify-content: center;
+			padding-right: 9px;
+			& span{
+				background: #fff;
+				&:nth-child(2){
+					width: 18px;
+				}
+			}
+			&-white{
+				background: #fff;
+				& span{
+					background: #000;
+				}
+			}
+		}
+	}
+}
 @keyframes bar_anim {
 	0%, 100% {
 	  -webkit-clip-path: inset(-2px 0);
@@ -162,4 +162,20 @@
 	  -webkit-clip-path: inset(-2px 100% -2px 0);
 	  clip-path: inset(-2px 100% -2px 0);
 	}
+}
+
+#sticky-bar{
+	position: fixed;
+    top: 10px;
+    right: 30px;
+    box-shadow: 0 3px 52px rgba(0, 0, 0, 0.3), 0 0px 12px rgba(0, 0, 0, 0.22);
+	opacity: 0;
+	visibility: hidden;
+	@include transition(.6s);
+}
+
+#sticky-bar.sticky-bar-active {
+	visibility: visible;
+	opacity: 1;
+	top: 30px;
 }

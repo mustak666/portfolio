@@ -1,6 +1,7 @@
 (function ($) {
     "use strict";
-
+  var windowOn = $(window);
+    $(document).ready( function() { 
        // mobile menu 
     var tpMenuWrap = $('.mobile-menu-active > ul').clone();
     var tpSideMenu = $('.offcanvas-menu nav');
@@ -21,86 +22,15 @@
       }
     });
 
-
-
     $(".offcanvas-toogle").on('click', function(){
       $(".offcanvas").addClass("offcanvas-open");
       $(".offcanvas-overlay").addClass("offcanvas-overlay-open");
     });
+
     $(".offcanvas-close-toggle,.offcanvas-overlay").on('click', function(){
       $(".offcanvas").removeClass("offcanvas-open");
       $(".offcanvas-overlay").removeClass("offcanvas-overlay-open");
     });
-
-
-    document.addEventListener("DOMContentLoaded", function () {
-      const skillCircles = document.querySelectorAll(".skill_circle");
-
-      // ✅ Initial state: সব progress 0
-      skillCircles.forEach(progress => {
-        const number = progress.querySelector(".number");
-        progress.style.background = `conic-gradient(#000 0%, #000 0%)`;
-        number.innerHTML = `0<span>%</span>`;
-      });
-
-        const observer = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-
-            const progress = entry.target;
-            if (progress.classList.contains("animated")) return;
-            progress.classList.add("animated");
-
-            let degree = 0;
-            const targetDegree = parseInt(progress.dataset.degree);
-            const color = progress.dataset.color;
-            const number = progress.querySelector(".number");
-
-            const interval = setInterval(() => {
-              degree++;
-              if (degree > targetDegree) {
-                clearInterval(interval);
-                return;
-              }
-
-              progress.style.background = `conic-gradient(${color} ${degree}%, #000 90%)`;
-              number.innerHTML = degree + "<span>%</span>";
-              number.style.color = color;
-            }, 20);
-
-            observer.unobserve(progress);
-          });
-        }, {
-          threshold: 0.4
-        });
-
-        skillCircles.forEach(circle => observer.observe(circle));
-    });
-
-    document.addEventListener("DOMContentLoaded", function () {
-      const bars = document.querySelectorAll(".progress-bar");
-
-      bars.forEach(bar => {
-        // শুরুতে 0%
-        bar.style.width = "0%";
-        bar.style.transition = "width 1.5s ease-in-out";
-      });
-
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const bar = entry.target;
-            const value = bar.getAttribute("aria-valuenow");
-            bar.style.width = value + "%";
-            observer.unobserve(bar); // একবারই animate হবে
-          }
-        });
-      }, { threshold: 0.4 });
-
-      bars.forEach(bar => observer.observe(bar));
-    });
-
-
 
     // data bg img 
     $("[data-background]").each(function () {
@@ -125,8 +55,6 @@
         type: 'iframe'
         // other options
     });
-
-   
 
     // blog slider 
     var swiper = new Swiper(".testimonail-active", {
@@ -173,14 +101,25 @@
             }
           },
     });
-
-
     $('.counterUp').counterUp({
       delay: 10,
       time: 1000,
     });
 
-$(document).ready(function(){"use strict";
+        // stiky-menu
+    windowOn.on('scroll', function () {
+      var scroll = windowOn.scrollTop();
+      if (scroll < 150) {
+        $("#sticky-bar").removeClass("sticky-bar-active");
+      } else {
+        $("#sticky-bar").addClass("sticky-bar-active");
+      }
+    });
+
+
+  });
+
+  $(document).ready(function(){"use strict";
 		
 		var progressPath = document.querySelector('.progress-wrap path');
 		var pathLength = progressPath.getTotalLength();
@@ -214,22 +153,164 @@ $(document).ready(function(){"use strict";
 		
 		
 	});
+  jQuery(document).ready(function ($) {
+    const $skillCircles = $(".skill_circle");
+
+    // Initial state: progress 0
+    $skillCircles.each(function () {
+      const $progress = $(this);
+      const $number = $progress.find(".number");
+
+      $progress.css(
+        "background",
+        "conic-gradient(#000 0%, #000 0%)"
+      );
+      $number.html('0<span>%</span>');
+    });
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+
+        const progress = entry.target;
+        const $progress = $(progress);
+
+        if ($progress.hasClass("animated")) return;
+        $progress.addClass("animated");
+
+        let degree = 0;
+        const targetDegree = parseInt($progress.data("degree"));
+        const color = $progress.data("color");
+        const $number = $progress.find(".number");
+
+        const interval = setInterval(() => {
+          degree++;
+
+          if (degree > targetDegree) {
+            clearInterval(interval);
+            return;
+          }
+
+          $progress.css(
+            "background",
+            `conic-gradient(${color} ${degree}%, #000 90%)`
+          );
+          $number.html(degree + "<span>%</span>");
+          $number.css("color", color);
+        }, 20);
+
+        observer.unobserve(progress);
+      });
+    }, {
+      threshold: 0.4
+    });
+
+    $skillCircles.each(function () {
+      observer.observe(this);
+    });
+  });
+  jQuery(document).ready(function ($) {
+    const $bars = $(".progress-bar");
+
+    // Initial 0%
+    $bars.each(function () {
+      $(this).css({
+        width: "0%",
+        transition: "width 1.5s ease-in-out"
+      });
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+
+        const bar = entry.target;
+        const $bar = $(bar);
+        const value = $bar.attr("aria-valuenow");
+
+        $bar.css("width", value + "%");
+        observer.unobserve(bar);
+      });
+    }, {
+      threshold: 0.4
+    });
+
+    $bars.each(function () {
+      observer.observe(this);
+    });
+  });
+// page load থাকা অবস্থায় scroll বন্ধ
+document.body.style.overflow = "hidden";
+
+// Select all elements with the class "inner-bar"
+const innerBars = document.querySelectorAll(".inner-bar");
+
+// Initialize a variable to keep track of the current increment
+let increment = 0;
+
+// Function to animate the inner bars
+function animateBars(){ 
+  // Loop through the first two inner bars
+  for(let i = 0; i < 2; i++){
+    let randomWidth = Math.floor(Math.random() * 101);
+
+    gsap.to(innerBars[i + increment], {
+      width: `${randomWidth}%`,
+      duration: 0.2,
+      ease: "none"
+    });
+  }
+
+  // Animate back to 100%
+  setTimeout(() => {
+    for(let i = 0; i < 2; i++){
+      gsap.to(innerBars[i + increment], {
+        width: "100%",
+        duration: 0.3,
+        ease: "none"
+      });
+    }
+
+    increment += 2;
+
+    if(increment < innerBars.length){
+      animateBars();
+    } else {
+      // preloader hide animation
+      const preloaderTl = gsap.timeline();
+
+      preloaderTl.to(".preloader-overlay", {
+        transform: "translateX(0)",
+        duration: 0.9,
+        ease: "none",
+        delay: 0.6
+      });
+
+      preloaderTl.to(".preloader", {
+        autoAlpha: 0,   // ✅ smooth hide (NO display:none)
+        duration: 0.2,
+        ease: "none",
+        onComplete: () => {
+          // page scroll চালু
+          document.body.style.overflow = "auto";
+        }
+      });
+    }
+
+  }, 200);
+}
+
+// Start animation
+animateBars();
+
+// Run the animateBars function on window load
+window.onload = function() {
+  setTimeout(() => {
+    animateBars();
+  }, 1000);
+}
 
 
 
-    // gsap.registerPlugin(ScrollTrigger);
 
-    // let sections = gsap.utils.toArray(".panel");
-
-    // gsap.to(sections, {
-    //   xPercent: -100 * (sections.length - 1),
-    //   ease: "none",
-    //   scrollTrigger: {
-    //     trigger: ".panel-wrap",
-    //     pin: true,
-    //     scrub: 1,
-    //     snap: 1 / (sections.length - 1),
-    //     end: "+=3500",
-    //   }
-    // });
 })(jQuery);
