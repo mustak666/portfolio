@@ -1917,6 +1917,11 @@ img {
   text-transform: uppercase;
   overflow-x: hidden;
 }
+@media (max-width: 767px) {
+  .preloader span {
+    font-size: 50px;
+  }
+}
 
 .site-name {
   background-color: #000;
