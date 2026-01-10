@@ -1,7 +1,7 @@
 @use '../utils' as *;
 
 
-.tp-offcanvas {
+.offcanvas {
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -30,38 +30,34 @@
         transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
         transition-delay: 0.3s;
 	}
-
 	&-button {
 		&-close{
 			& i{
 				font-size: 30px;
 				transition: .5s;
 				&:hover{
-					color: #FF5B15;
+					color: #f5df4e;
 					transform: rotate(-90deg);
 				}
 			}
 		}
 	}
-
 	&-gulary {
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr 1fr;
 	}
-
 	&-title {
-		font-size: 30px;
+		font-size: 25px;
 	}
-
-
 	&-cta{
 		&-title {
 			font-size: 30px;
 		}
 		& li{
+			list-style: none;
 			& span{
 				font-size: 17px;
-				color: var(--heading-color);
+				color: var(--tp-heading-color);
 				& i{
 					margin-right: 6px;
 				}
@@ -69,17 +65,19 @@
 			margin-bottom: 5px;
 		}
 	}
-
 	&-social{
 		& a{
 			font-size: 20px;
 			margin-right: 15px;
 		}
 	}
+	&-header{
+		padding: 0;
+	}
 }
 
 
-.tp-offcanvas-overlay {
+.offcanvas-overlay {
 	position: fixed;
 	background-color: #000;
 	width: 0;
@@ -90,7 +88,7 @@
     transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
     transition-delay: 0.3s;
 }
- .tp-offcanvas-overlay-open{
+ .offcanvas-overlay-open{
 	opacity: .5;
 	visibility: visible;
     width: 100%;
@@ -98,11 +96,70 @@
     transition-delay: 0s;
 }
 
-// .tp-offcanvas-bar button {
-// 	font-size: 34px;
-// 	background: var(--tp-theme-color);
-// 	padding: 10px 13px;
-//     & i{
-//         color: #fff;
-//     }
-// }
+    .header-sidebar{
+        &-btn{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+            padding-right: 10px;
+            border-radius: 50px;
+			background-color: #fff;
+            &:hover{
+                & span{
+                    animation: bar_anim 0.8s cubic-bezier(0.44, 1.1, 0.53, 0.99) 1 forwards;
+                    &:nth-child(2) {
+                        animation-delay: 0.1s;
+                    }
+                }
+            }
+            & span{
+                background: #000;
+                width: 13px;
+                margin: 0 0 0 auto;
+                border-radius: 20px;
+                height: 2px;
+                display: inline-block;
+                &:nth-child(2){
+                    width: 20px;
+                }
+            }
+            &-bg{
+                width: 36px;
+                height: 36px;
+                background: #000;
+                border-radius: 50px;
+                justify-content: center;
+                padding-right: 9px;
+                & span{
+                    background: #fff;
+                    &:nth-child(2){
+                        width: 18px;
+                    }
+                }
+                &-white{
+                    background: #fff;
+                    & span{
+                        background: #000;
+                    }
+                }
+            }
+        }
+    }
+@keyframes bar_anim {
+	0%, 100% {
+	  -webkit-clip-path: inset(-2px 0);
+	  clip-path: inset(-2px 0);
+	}
+	42% {
+	  -webkit-clip-path: inset(-2px 0 -2px 100%);
+	  clip-path: inset(-2px 0 -2px 100%);
+	}
+	43% {
+	  -webkit-clip-path: inset(-2px 100% -2px 0);
+	  clip-path: inset(-2px 100% -2px 0);
+	}
+}

@@ -1,20 +1,22 @@
 @use '../../utils' as *;
-.tp-header-bar {
+
+
+.header-bar {
 	font-size: 25px;
-	color: var(--tp-white);
+	color: #fff;
     &-black{
-        color: var(--heading-color);
+        color: #000;
         margin-right: 20px;
     }
     &:hover{
-        color: var(--tp-primary-color);
+        color: #000;
     }
 }
-.tp-header-nav{
+.header-nav{
     justify-content: end;
 }
 
-.tp-offcanvas-menu {
+.offcanvas-menu {
     margin-bottom: 20px;
     @media #{$xs}{
       width: 100%;
@@ -28,6 +30,7 @@
             border-bottom: 1px solid #ddd;
             padding: 5px 0;
             transition: .4s;
+            list-style: none;
             & .sub-menu {
                 display: none;
                 & li{
@@ -40,7 +43,7 @@
                     & a{
                         transition: .4s;
                         &:hover{
-                            color: var(--tp-theme-color);
+                            color: #fff;
                         }
                         & i{
                             display: none;
@@ -83,7 +86,7 @@
     }
       
   }
-  .tp-menu-close {
+  .menu-close {
 	position: absolute;
 	right: 10px;
 	top: 3px;
@@ -96,7 +99,7 @@
 }
 
 
-.tp-mobail-menu{
+.mobail-menu{
     display: none;
     @media #{$xs,$sm,$md,$lg}{
         display: block;

@@ -6,13 +6,16 @@
         position: absolute;
         bottom: 20px;
         left: 20px;
-        width: 450px;
+        max-width: 450px;
         backdrop-filter: blur(10px);
         padding: 15px;
         box-shadow: 5px 5px 60px #494343;
         border-radius: 10px;
         overflow: hidden;
         @include transition(.4s);
+        @media #{$md}{
+           max-width: 300px;
+        }
         @media #{$xs}{
             width: auto;
             left: 0;
@@ -47,7 +50,7 @@
         }
         & img{
             width: 100%;
-            min-height: 507px;
+            min-height: 400px;
             object-fit: cover;
         }
     }
@@ -69,9 +72,12 @@
     &-title {
         font-size: 32px;
         color: #fff;
+        @media #{$md,$xs}{
+            font-size: 25px;
+        }
         &-wrap{
-            @media #{$lg}{
-                margin-bottom: 50px;
+            @media #{$lg,$xs}{
+                padding-bottom: 50px;
             }
         }
     }
@@ -83,14 +89,12 @@
         position: absolute;
         top: 40%;
         left: 50%;
+        width: 100%;
+        text-align: center;
         transform: translate(-50%, -50%);
         opacity: 0;
         visibility: hidden;
         @include transition(.4s);
-            @media #{$xs}{
-               text-align: center;
-               width: 100%;
-            }
     }
     &-deg {
         font-size: 16px;
@@ -130,29 +134,11 @@
            padding: 80px 0;
         }
     }
+    &-active{
+        margin: 0 -300px;
+        @media #{$md,$xs}{
+          margin: 0;
+        }
+    }
 }
 
-.panel-wrap,.wp-panel-wrap {
-  overscroll-behavior: none;
-  width: 400% !important;
-  height: 100% !important;
-  display: flex;
-  flex-wrap: nowrap;
-    @media #{$xs}{
-       transform: translateY(14%) !important;
-    }
-}
-.panel {
-    flex: 0 0 auto;
-    max-width: 860px;
-    height: 100%;
-    @media #{$lg}{
-        max-width: 960px;
-    }
-    @media #{$md}{
-        max-width: 770px;
-    }
-    @media #{$xs}{
-        max-width: 320px;
-    }
-}

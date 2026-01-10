@@ -18,27 +18,52 @@
     }
     &-menu{
         text-align: center;
-        
         & ul{
             & li{
                 display: inline-block;
                 list-style: none;
                 margin-right: 20px;
-                &:hover > a{
-                    color: #fff;
+                &:hover > a::before{
+                   width: 100%;
+                   opacity: 1;
+                   visibility: visible;
+                   left: auto;
+                   right: 0;
                 }
                 & a{
                     display: inline-block;
                     font-weight: 600;
                     padding: 20px 0;
                     font-family: var(--font-heading);
+                    position: relative;
+                    &::before{
+                        position: absolute;
+                        content: "";
+                        width: 0;
+                        height: 2px;
+                        background-color: #000;
+                        border-radius: 10px;
+                        bottom: 23px;
+                        left: 0;
+                        z-index: 1;
+                        opacity: 0;
+                        visibility: hidden;
+                        @include transition(.4s);
+                        right: auto;
+                    }
                 }
             }
         }
     }
     &-main{
-        @media #{$lg,$md}{
+        @media #{$lg,$md,$xs}{
            padding: 15px 0;
         }
+    }
+    &-btn{
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        margin-left: -50px;
     }
 }

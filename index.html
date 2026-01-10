@@ -11,6 +11,18 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+
+    <div class="progress-wrap">
+		<svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+			<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+		</svg>
+	</div>
+
+
+
+
+
+
     
    <!-- header start  -->
     <header class="header-transparent">
@@ -24,20 +36,27 @@
                     </div>
                     <div class="col-xl-8 col-lg-6 col-md-6 d-none d-md-flex" >
                         <div class="header-menu d-none d-xl-block">
-                            <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">About Me</a></li>
-                                <li><a href="#">What I Do</a></li>
-                                <li><a href="#">Resume</a></li>
-                                <li><a href="#">Portfolio</a></li>
-                                <li><a href="#">Portfolio</a></li>
-                                <li><a href="#">Faq</a></li>
-                            </ul>
+                            <nav class="mobile-menu-active">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="#p_about_me">About Me</a></li>
+                                    <li><a href="#P_services">What I Do</a></li>
+                                    <li><a href="#p_skill">Skill</a></li>
+                                    <li><a href="#p_resume">Resume</a></li>
+                                    <li><a href="#p_portfolio">Portfolio</a></li>
+                                    <li><a href="#p_faq">Faq</a></li>
+                                    <li><a href="#p_contect">Contect</a></li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-3 col-md-3 col-5">
-                        <div class="header-btn text-end">
-                            <a href="#" class="btn">Hire Me</a>
+                        <div class="header-btn">
+                            <a class="btn d-none d-lg-flex" href="#">Hire Me</a>
+                            <button class="header-sidebar-btn offcanvas-toogle ml-10">
+                                <span></span>
+                                <span></span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -48,6 +67,47 @@
 
    <!-- main start  -->
     <main>
+
+        <!-- offcanvas-start -->
+        <section class="offcanvas">
+            <div class="offcanvas-wrapper">
+                <div class="offcanvas-header d-flex align-items-center justify-content-between mb-30">
+                    <div class="header-logo offcanvas-logo">
+                        <a href="index.html"><img src="assets/img/logo/logo.png" alt="logo-ing"></a>
+                    </div>
+                    <div class="offcanvas-button">
+                        <button class="offcanvas-button-close offcanvas-close-toggle"><i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="offcanvas-menu">
+                    <nav></nav>
+                </div>
+                <div class="offcanvas-content mb-30">
+                    <h3 class="offcanvas-title">Portfolio Offcanvas Title</h3>
+                    <p>I’m a Frontend & WordPress Developer focused on building clean, responsive, and user-friendly websites.</p>
+                </div>
+                <div class="offcanvas-cta mb-20">
+                <h3 class="offcanvas-title">Information</h3>
+                    <ul>
+                        <li><a href="tel:+880 1306-112137">+880 1306-112137</a></li>
+                        <li><a href="mailto:mustakahmedrion523@gmail.com">mustakahmedrion523@gmail.com</a></li>
+                        <li><a href="#">Kushtia Khulna Bangladesh</a></li>
+                    </ul>
+                </div>
+                <div class="contect-social">
+                    <ul>
+                        <li><a target="_blank" href="https://www.facebook.com/rion.khan.75873708"><i class="fa-brands fa-facebook"></i></a></li>
+                        <li><a target="_blank" href="https://github.com/mustak666"><i class="fa-brands fa-github"></i></a></li>
+                        <li><a target="_blank" href="https://www.linkedin.com/in/mostak-ahmed-rion-186769380/"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                        <li><a target="_blank" href="https://x.com/AhmmedRion91701"><i class="fa-brands fa-twitter"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <div class="offcanvas-overlay"></div>
+        <!-- offcanvas-start -->
+        
         <!-- hero-area,start  -->
          <section class="hero-area" data-bg-color="#f5df4e ">
             <div class="container">
@@ -73,7 +133,7 @@
          </section>
         <!-- hero-area,end  -->
          <!-- about-area start  -->
-          <section class="about-area pt-100 pb-100">
+          <section id="p_about_me" class="about-area pt-100 pb-100">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-10">
@@ -125,7 +185,7 @@
          <!-- about-area end  -->
 
           <!-- services-area,start  -->
-           <section class="services-area pt-100 pb-100" data-bg-color="#f1f1f1">
+           <section id="P_services" class="services-area pt-100 pb-100" data-bg-color="#f1f1f1">
             <div class="container">
                <div class="row justify-center">
                     <div class="col-md-10">
@@ -176,7 +236,7 @@
           <!-- services-area,end  -->
 
         <!-- summary-area,start -->
-            <section class="summary-area pt-100 pb-100">
+            <section id="p_resume" class="summary-area pt-100 pb-100">
                 <div class="container">
                     <div class="row justify-center">
                         <div class="col-md-10">
@@ -225,7 +285,7 @@
         <!-- summary-area,end -->
          
          <!-- skill-area,start  -->
-          <section class="skill-area pt-100 pb-100" data-bg-color="#ffdb67">
+          <section id="p_skill" class="skill-area pt-100 pb-100" data-bg-color="#ffdb67">
             <div class="container">
                 <div class="row pb-100 skill-spacing">
                     <div class="col-xl-4 col-lg-3">
@@ -397,18 +457,22 @@
          <!-- skill-area,end  -->
 
            <!-- portfolio-area,start  -->
-            <section class="portfolio-area pt-100 pb-100 fix" data-bg-color="#f1f1f1">
+            <section id="p_portfolio" class="portfolio-area pt-100 pb-100 fix" data-bg-color="#f1f1f1">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-xl-4">
-                            <div class="section-title-wrap portfolio-title-wrap">
+                    <div class="row justify-center">
+                        <div class="col-xl-8">
+                            <div class="section-title-wrap portfolio-title-wrap text-center pb-70">
                                 <span class="section-sub-title mb-6">Portfolio</span>
                                 <h2 class="section-title">Recent Work</h2>
                             </div>
                         </div>
-                        <div class="col-xl-8 fix p-0">
-                            <div class="panel-wrap">
-                                <div class="panel kindaid">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="swiper portfolio-active">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
                                     <div class="portfolio-item">
                                         <div class="portfolio-thumb p-relative section-inner">
                                             <a href="https://github.com/mustak666/kindaid"><img src="assets/img/portfolio/portfolio-thumb-2.jpg.png" alt=""></a>
@@ -424,13 +488,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="panel solub">
+                                <div class="swiper-slide">
                                     <div class="portfolio-item">
                                         <div class="portfolio-thumb p-relative section-inner">
                                             <a href="https://mustak666.github.io/solub/"><img src="assets/img/portfolio/portfolio-thumb-1.jpg" alt=""></a>
                                             <span class="portfolio-cat">Html</span>
                                             <div class="portfolio-btn z-index-2">
-                                                <a class="btn btn-black" target="_blank" href="https://mustak666.github.io/solub/">View project</a>
+                                                <a class="btn btn-black" target="_blank" href="https://mustak666.github.io/solub/">View Html</a>
                                             </div>
                                         </div>
                                         <div class="portfolio-content p-relative z-index-2">
@@ -439,7 +503,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="panel exdos">
+
+                                <div class="swiper-slide">
                                     <div class="portfolio-item">
                                         <div class="portfolio-thumb p-relative section-inner">
                                             <a target="_blank" href="https://github.com/mustak666/wp-exdos"><img src="assets/img/portfolio/portfolio-thumb-3.jpg.png" alt=""></a>
@@ -455,13 +520,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="panel wehelp">
+                                <div class="swiper-slide">
                                     <div class="portfolio-item">
                                         <div class="portfolio-thumb p-relative section-inner">
                                             <a href="https://mustak666.github.io/wehelp/"><img src="assets/img/portfolio/portfolio-thumb-4.jpg.png" alt=""></a>
                                             <span class="portfolio-cat">Html</span>
                                             <div class="portfolio-btn z-index-2">
-                                                <a class="btn btn-black" target="_blank" href="https://mustak666.github.io/wehelp/">View project</a>
+                                                <a class="btn btn-black" target="_blank" href="https://mustak666.github.io/wehelp/">View Html</a>
                                             </div>
                                         </div>
                                         <div class="portfolio-content p-relative z-index-2">
@@ -470,23 +535,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="panel harry">
-                                    <div class="portfolio-item">
-                                        <div class="portfolio-thumb p-relative section-inner">
-                                            <a href="https://github.com/mustak666/harry"><img src="assets/img/portfolio/portfolio-thumb-5.jpg.png" alt=""></a>
-                                            <span class="portfolio-cat">WordPress</span>
-                                            <div class="portfolio-btn z-index-2">
-                                                <a class="btn btn-black mr-10" target="_blank" href="https://github.com/mustak666/harry">View WordPress</a>
-                                                <a class="btn btn-black" target="_blank" href="https://mustak666.github.io/harry-html/">View Html</a>
-                                            </div>
-                                        </div>
-                                        <div class="portfolio-content p-relative z-index-2">
-                                            <h3 class="portfolio-title"><a href="https://github.com/mustak666/harry">Harry</a></h3>
-                                            <p class="portfolio-deg">A Modern WordPress Theme for Creative Agencies and Studios</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel donacion">
+                                <div class="swiper-slide">
                                     <div class="portfolio-item">
                                         <div class="portfolio-thumb p-relative section-inner">
                                             <a href="https://github.com/mustak666/donacion"><img src="assets/img/portfolio/portfolio-thumb-6.jpg.png" alt=""></a>
@@ -510,7 +559,7 @@
            <!-- portfolio-area,end  -->
 
          <!-- cta-area,start  -->
-          <section class="cta-area cta-spacing cta-overlay p-relative" data-background="assets/img/bg/cta-bg.jpg">
+          <section  class="cta-area cta-spacing cta-overlay p-relative" data-background="assets/img/bg/cta-bg.jpg">
             <div class="container">
                 <div class="row justify-center">
                     <div class="col-xl-8 col-md-10">
@@ -527,7 +576,7 @@
          <!-- cta-area,end  -->
 
          <!-- faq-area,start  -->
-          <section class="faq-area pt-100 pb-100" data-bg-color="#f1f1f1" >
+          <section id="p_faq" class="faq-area pt-100 pb-100" data-bg-color="#f1f1f1" >
             <div class="container">
                 <div class="faq-title-wrap pb-100 text-center">
                     <span class="section-sub-title mb-6">Faq</span>
@@ -743,7 +792,7 @@
          <!-- testimonail-area,end  -->
 
           <!-- contect-area,start  -->
-           <section class="contect-area pt-100 pb-100" data-bg-color="#f1f1f1" >
+           <section id="p_contect" class="contect-area pt-100 pb-100" data-bg-color="#f1f1f1" >
             <div class="container">
                 <div class="row">
                     <div class="col-xl-6 col-lg-6">
