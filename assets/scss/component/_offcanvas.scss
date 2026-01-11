@@ -18,7 +18,7 @@
 	scrollbar-width: none;
     transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
     transition-delay: 0s;
-	z-index: 999;
+	z-index: 99999;
     @media only screen and (max-width: 400px) {
         width: 100%;
         padding: 35px 30px;
@@ -178,4 +178,7 @@
 	visibility: visible;
 	opacity: 1;
 	top: 30px;
+	z-index: 999;
 }
+
+
