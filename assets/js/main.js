@@ -24,11 +24,11 @@
       }
     });
 
+    // offcanvas 
     $(".offcanvas-toogle").on('click', function(){
       $(".offcanvas").addClass("offcanvas-open");
       $(".offcanvas-overlay").addClass("offcanvas-overlay-open");
     });
-
     $(".offcanvas-close-toggle,.offcanvas-overlay").on('click', function(){
       $(".offcanvas").removeClass("offcanvas-open");
       $(".offcanvas-overlay").removeClass("offcanvas-overlay-open");
@@ -49,7 +49,7 @@
         $(this).css("color", $(this).attr("data-color"))
     })
 
-    // blog slider 
+    // testimonail slider 
     var swiper = new Swiper(".testimonail-active", {
         slidesPerView: 1,
         spaceBetween: 0,
@@ -66,6 +66,7 @@
         },
     });
 
+    // portfolio slider 
     var swiper = new Swiper(".portfolio-active", {
         slidesPerView: 3,
         spaceBetween: 20,
@@ -164,7 +165,7 @@
   }
   heroTextAnim();
 
-
+  // revel text 
 if($('.reveal-text').length) {
 		var textheading = $(".reveal-text");
 
@@ -200,6 +201,7 @@ if($('.reveal-text').length) {
 		});
 	}
 
+  // fade in up 
 if ($('.fade-in-up').length) {
 
     gsap.registerPlugin(ScrollTrigger);
@@ -481,41 +483,40 @@ window.onload = function() {
 }
 
 function scrollSmoothAnim(){
-    gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin);
 
-    let smoother; // ✅ shared scope (সব জায়গা থেকে accessible)
+let smoother; // ✅ shared scope (সব জায়গা থেকে accessible)
 
-    if ($('#smooth-wrapper').length && $('#smooth-content').length) {
+if ($('#smooth-wrapper').length && $('#smooth-content').length) {
 
-      gsap.config({
-        nullTargetWarn: false,
-      });
+  gsap.config({
+    nullTargetWarn: false,
+  });
 
-      smoother = ScrollSmoother.create({
-        smooth: 1,
-        effects: true,
-        smoothTouch: 0.1,
-        normalizeScroll: false,
-        ignoreMobileResize: true,
-      });
-    }
+  smoother = ScrollSmoother.create({
+    smooth: 1,
+    effects: true,
+    smoothTouch: 0.1,
+    normalizeScroll: false,
+    ignoreMobileResize: true,
+  });
+}
 
-    window.scrollTo(0, 0);
+window.scrollTo(0, 0);
 
-    $('a[href^="#"]').on('click', function (e) {
-      e.preventDefault();
+$(document).on('click', 'a[href^="#"]', function (e) {
 
-      if (!smoother) return; // ✅ now this works
+  // ✅ Mobile / touch device → do NOT block default
+  if (ScrollTrigger.isTouch || !smoother) return;
 
-      smoother.scrollTo(this.getAttribute('href'), true);
-    });
+  e.preventDefault();
 
+  const target = this.getAttribute('href');
+  smoother.scrollTo(target, true);
+});
 }
 scrollSmoothAnim();
 
-
-
 new WOW().init();
-
 
 })(jQuery);
