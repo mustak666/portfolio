@@ -306,6 +306,8 @@ jarallax(document.querySelectorAll('.jarallax'), {
 //================== jarallax==============
 
 
+
+
   });
 
 
@@ -479,24 +481,39 @@ window.onload = function() {
 }
 
 function scrollSmoothAnim(){
-   gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin);
-   if ($('#smooth-wrapper').length && $('#smooth-content').length) {
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin);
+
+    let smoother; // ✅ shared scope (সব জায়গা থেকে accessible)
+
+    if ($('#smooth-wrapper').length && $('#smooth-content').length) {
 
       gsap.config({
-         nullTargetWarn: false,
+        nullTargetWarn: false,
       });
 
-      let smoother = ScrollSmoother.create({
-         smooth: 1,
-         effects: true,
-         smoothTouch: 0.1,
-         normalizeScroll: false,
-         ignoreMobileResize: true,
+      smoother = ScrollSmoother.create({
+        smooth: 1,
+        effects: true,
+        smoothTouch: 0.1,
+        normalizeScroll: false,
+        ignoreMobileResize: true,
       });
-   }
-   window.scrollTo(0, 0);
+    }
+
+    window.scrollTo(0, 0);
+
+    $('a[href^="#"]').on('click', function (e) {
+      e.preventDefault();
+
+      if (!smoother) return; // ✅ now this works
+
+      smoother.scrollTo(this.getAttribute('href'), true);
+    });
+
 }
 scrollSmoothAnim();
+
+
 
 new WOW().init();
 
