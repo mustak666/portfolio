@@ -206,10 +206,6 @@ if ($('.fade-in-up').length) {
 
     gsap.registerPlugin(ScrollTrigger);
 
-if ($('.fade-in-up').length) {
-
-    gsap.registerPlugin(ScrollTrigger);
-
     gsap.set('.fade-in-up', {
         opacity: 0,
         y: 50
@@ -220,19 +216,18 @@ if ($('.fade-in-up').length) {
             trigger: '.fade-in-up',
             start: "top 85%",
             end: "top 40%",
-            scrub: 2,
+            scrub: 1,
             markers: false,
             toggleActions: "play none none none",
         },
         opacity: 1,
         y: 0,
-        duration: 2,
+        duration: 3,
         ease: "power2.out",
-        stagger: 0.5   // ✅ each element comes after 0.3s
+        stagger: 1,   // ✅ each element comes after 0.3s
     });
 }
 
-}
 
 //================== text-anim-5==============
 
@@ -298,7 +293,6 @@ if ($('.text-anim-5').length > 0) {
 
 //================== text-anim-2==============
 
-
 //================== jarallax==============
 
 jarallax(document.querySelectorAll('.jarallax'), {
@@ -308,11 +302,7 @@ jarallax(document.querySelectorAll('.jarallax'), {
 //================== jarallax==============
 
 
-
-
   });
-
-
 
 $(document).ready(function(){"use strict";
   
@@ -419,12 +409,18 @@ function circleProgressBar(){
 circleProgressBar();
 
 
+// Scroll lock
 document.body.style.overflow = "hidden";
+
 const innerBars = document.querySelectorAll(".inner-bar");
 let increment = 0;
-function animateBars(){ 
-  // Loop through the first two inner bars
-  for(let i = 0; i < 2; i++){
+let preloaderFinished = false;
+
+function animateBars() {
+
+  if (preloaderFinished) return;
+
+  for (let i = 0; i < 2; i++) {
     let randomWidth = Math.floor(Math.random() * 101);
 
     gsap.to(innerBars[i + increment], {
@@ -434,9 +430,9 @@ function animateBars(){
     });
   }
 
-  // Animate back to 100%
   setTimeout(() => {
-    for(let i = 0; i < 2; i++){
+
+    for (let i = 0; i < 2; i++) {
       gsap.to(innerBars[i + increment], {
         width: "100%",
         duration: 0.3,
@@ -446,25 +442,42 @@ function animateBars(){
 
     increment += 2;
 
-    if(increment < innerBars.length){
+    if (increment < innerBars.length) {
       animateBars();
     } else {
-      // preloader hide animation
+
+      preloaderFinished = true;
+
       const preloaderTl = gsap.timeline();
 
       preloaderTl.to(".preloader-overlay", {
-        transform: "translateX(0)",
+        x: 0,
         duration: 0.9,
         ease: "none",
         delay: 0.6
       });
 
+      // ✅ WOW init 0.5s BEFORE preloader ends
+      preloaderTl.call(() => {
+
+        if (typeof WOW === "function") {
+          new WOW({
+            boxClass: "wow",
+            animateClass: "animated",
+            offset: 0,
+            mobile: true,
+            live: false
+          }).init();
+        }
+
+      }, null, "-=0.3"); // 👈 key line
+
       preloaderTl.to(".preloader", {
-        autoAlpha: 0,   // ✅ smooth hide (NO display:none)
-        duration: 0.2,
+        autoAlpha: 0,
+        duration: 0.3,
         ease: "none",
         onComplete: () => {
-          // page scroll চালু
+          // Scroll unlock only at real end
           document.body.style.overflow = "auto";
         }
       });
@@ -472,15 +485,12 @@ function animateBars(){
 
   }, 200);
 }
-// Start animation
-animateBars();
+
+window.addEventListener("load", () => {
+  animateBars();
+});
 
 
-window.onload = function() {
-  setTimeout(() => {
-    animateBars();
-  }, 1000);
-}
 
 function scrollSmoothAnim(){
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin);
@@ -517,6 +527,16 @@ $(document).on('click', 'a[href^="#"]', function (e) {
 }
 scrollSmoothAnim();
 
-new WOW().init();
+
+
+
+
+
+
+
+
+
+
+
 
 })(jQuery);
